@@ -38,6 +38,12 @@ class SolveDiffusion2D:
         self.dt = None
 
     def initialize_domain(self, w=10., h=10., dx=0.1, dy=0.1):
+        # assertion: float check
+        assert isinstance(w, float), "w should be a float"
+        assert isinstance(h, float), "h should be a float"
+        assert isinstance(dx, float), "dx should be a float"
+        assert isinstance(dy, float), "dy should be a float"
+
         self.w = w
         self.h = h
         self.dx = dx
@@ -45,7 +51,12 @@ class SolveDiffusion2D:
         self.nx = int(w / dx)
         self.ny = int(h / dy)
 
-    def initialize_physical_parameters(self, d=4., T_cold=300, T_hot=700):
+    def initialize_physical_parameters(self, d=4., T_cold=300., T_hot=700.):
+        # assertion: float check
+        assert isinstance(d, float), "d should be a float"
+        assert isinstance(T_cold, float), "T_cold should be a float"
+        assert isinstance(T_hot, float), "T_hot should be a float"
+
         self.D = d
         self.T_cold = T_cold
         self.T_hot = T_hot
